@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mt-4">
+        <div class="d-flex justify-content-center">
+            <h1>Choisissez votre équipe préférée</h1>
+        </div>
+        <div class="row mt-3">
+            {% for team in teams['data'] %}
+            <div class="col-md-3 mb-3">
+                <a href="#" class="border p-3 d-block text-decoration-none text-dark pointer team-link"
+                   style="background-color: {{ colorList[(loop.index - 1) % colorList|length] }};">
+                    {{ team['full_name'] }}
+                </a>
+            </div>
+            {% if loop.index % 4 == 0 %}
+        </div><div class="row mt-3">
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
