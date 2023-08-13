@@ -10,7 +10,7 @@
         <div class=" collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav mx-auto ">
                 <li class="nav-item">
-                    <a class="nav-link mx-2 active" aria-current="page" href="#">Mon Equipe</a>
+                    <a class="nav-link mx-2" aria-current="page" href="{{ path('app_home.myteam') }}">Mon Equipe</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link mx-2" href="#">Classements</a>
@@ -32,7 +32,7 @@
                 </li>
                 {% if app.user %}
                     <li class="nav-item">
-                        <a class="nav-link active" href="{{ path('app_security.logout') }}">Deconnexion</a>
+                        <a class="nav-link" href="{{ path('app_security.logout') }}">Deconnexion</a>
                     </li>
                 {% else %}
                     <li class="nav-item dropdown" style="margin-right: 3rem;">
