@@ -1,0 +1,37 @@
+{% include 'base.html.twig' %}
+
+{% block body %}
+<section class="vh-100">
+    <div class="container h-100">
+        <div class="row d-flex align-items-center justify-content-center h-100">
+            <div class="col-md-8 col-lg-7 col-xl-6">
+                <img src="/img/logo.svg"
+                     class="img-fluid" alt="MyNBA">
+            </div>
+            <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+                <form action="{{ path('app_security.login') }}" method="post">
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <label for="username" class="form-label">Adresse Mail</label>
+                        <input type="email" class="form-control form-control-lg" value="{{last_username}}" id="username"
+                               name="_username"/>
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                        <label for="password" class="form-label">Mot de Passe</label>
+                        <input type="password" class="form-control form-control-lg" id="password" name="_password"/>
+                    </div>
+
+                    <div class="d-flex justify-content-around align-items-center mb-4">
+                        <a href="#">Mot de passe oublié ?</a>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Se Connecter</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
