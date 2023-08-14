@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="d-flex justify-content-center mt-4">
+        MyNBA, l'application ultime pour suivre la NBA et votre équipe préférée.
+    </div>
+    <h1>NBA Teams</h1>
+    <ul>
+        {% for team in teams['data'] %}
+            <li>{{ team['full_name'] }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
