@@ -1,13 +1,46 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="d-flex justify-content-center mt-4">
-        MyNBA, l'application ultime pour suivre la NBA et votre équipe préférée.
-    </div>
-    <h1>NBA Teams</h1>
-    <ul>
-        {% for team in teams['data'] %}
-            <li>{{ team['full_name'] }}</li>
+    <div class="container mt-4">
+        <div class="d-flex justify-content-center">
+            MyNBA, l'application pour suivre une saison historique et votre équipe préférée
+        </div>
+        <div class="d-flex justify-content-center">
+            <h1 class="mt-4">Saison 2018-2019</h1>
+        </div>
+        {% for date, matches in pagination %}
+            <div class="card mt-4">
+                <div class="card-header">
+                    {{ date|date('d/m/Y') }}
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Matchs</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for match in matches %}
+                            <tr>
+                                <td>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                            <span>
+                                                {{ match.home_team.full_name }} {{ match.home_team_score }} - {{ match.visitor_team_score }} {{ match.visitor_team.full_name }}
+                                            </span>
+                                        <a href="{{ path('app_my_team.team_details', {'id': match.home_team.id}) }}" class="btn btn-secondary btn-sm">Détails</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         {% endfor %}
-    </ul>
+
+        <div class="d-flex justify-content-center mt-4">
+            {{ knp_pagination_render(pagination, 'pagination/pagination.html.twig') }}
+        </div>
+    </div>
 {% endblock %}

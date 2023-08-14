@@ -15,7 +15,7 @@
                     <a class="nav-link mx-2" href="{{ path('app_my_team.team_details', {'id': app.user.idFavoriteTeam}) }}">Mon Équipe</a>
                 {% endif %}
                 <li class="nav-item">
-                    <a class="nav-link mx-2" href="#">Classements</a>
+                    <a class="nav-link mx-2" href="{{ path('app_standings') }}">Classements</a>
                 </li>
                 <li class="nav-item d-none d-lg-block">
                     <a class="nav-link mx-2" href={{ path('app_home') }}>
@@ -27,7 +27,7 @@
                         MyNBA
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">Dernières MAJ</a></li>
+                        <li><a class="dropdown-item" href="{{ path('app_app.notes') }}">Dernières MAJ</a></li>
                         <li><a class="dropdown-item" href="#">Thème</a></li>
                         <li><a class="dropdown-item" href="#">Contact</a></li>
                     </ul>
