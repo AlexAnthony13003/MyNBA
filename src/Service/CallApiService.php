@@ -38,9 +38,9 @@ class CallApiService
         return json_decode($response->getBody(), true);
     }
 
-    public function getMatches(): array
+    public function getMatchesForSeason(int $season): array
     {
-        $response = $this->client->request('GET', 'https://free-nba.p.rapidapi.com/games?page=0', [
+        $response = $this->client->request('GET', "https://free-nba.p.rapidapi.com/games?page=0&per_page=200&Seasons={$season}", [
             'headers' => [
                 'X-RapidAPI-Host' => 'free-nba.p.rapidapi.com',
                 'X-RapidAPI-Key' => '1c091c85d4msh6a0456eaccc958ap1f80c2jsne7fc2f278e62',
