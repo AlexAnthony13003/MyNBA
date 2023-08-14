@@ -46,4 +46,17 @@ class MyTeamController extends AbstractController
             'teamDetails' => $teamDetails,
         ]);
     }
+    #[Route('/redirect', name: 'app_redirect')]
+    public function redirectUser(): Response
+    {
+        $user = $this->getUser();
+
+        if ($user instanceof User) {
+            if ($user->getIdFavoriteTeam() !== null) {
+                return $this->redirectToRoute('app_my_team.team_details', ['id' => $user->getIdFavoriteTeam()]);
+            }
+        }
+
+        return $this->redirectToRoute('app_my_team');
+    }
 }
