@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="mt-4">Contactez-nous</h1>
+        <p class="lead">Nous sommes là pour répondre à vos questions. N'hésitez pas à nous contacter en utilisant le formulaire ci-dessous :</p>
+
+        {% if app.request.method == 'POST' %}
+            <div class="alert alert-success mt-3" role="alert">
+                {% for message in app.flashes('success') %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <form method="post" class="mt-4">
+            <div class="mb-3">
+                <label for="inputName" class="form-label">Nom</label>
+                <input type="text" class="form-control" id="inputName" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="inputEmail" class="form-label">Adresse e-mail</label>
+                <input type="email" class="form-control" id="inputEmail" name="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="inputMessage" class="form-label">Message</label>
+                <textarea class="form-control" id="inputMessage" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+        </form>
+    </div>
+{% endblock %}
