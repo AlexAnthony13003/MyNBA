@@ -1,5 +1,17 @@
+{# templates/theme/choose.html.twig #}
+
 {% extends 'base.html.twig' %}
 
 {% block body %}
-        {{form(form)}}
+        <div class="container mt-4">
+                <div class="row">
+                        <div class="col-md-6">
+                                <img src="img/ALL-NBA-Team.jpg" alt="NBA" class="img-fluid">
+                        </div>
+                        <div class="col-md-6">
+                                {{ form(form) }}
+                        </div>
+                </div>
+        </div>
 {% endblock %}
+
